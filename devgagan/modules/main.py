@@ -313,3 +313,13 @@ async def stop_batch(_, message):
             message.chat.id, 
             "No active batch processing is running to cancel."
         )
+
+# ==========================
+# GET CHAT ID COMMAND
+# ==========================
+@app.on_message(filters.command("getid") & filters.private)
+async def get_chat_id(_, message):
+    chat_id = message.chat.id
+    await message.reply_text(
+        f"✨ आपका Telegram Chat ID है:\n\n`{chat_id}`\n\nइस ID का इस्तेमाल आप config या broadcast में कर सकते हैं।"
+    )
